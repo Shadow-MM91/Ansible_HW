@@ -4,4 +4,5 @@ all:
     netology:
       hosts:
         netology-ml-01:
-          ansible_host: 10.0.2.15
+          ansible_host: 127.0.0.1
+          connection: local
