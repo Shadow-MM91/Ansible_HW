@@ -1,0 +1,34 @@
+root@mihail-VirtualBox:/etc/ansible# ansible-playbook -i etc/ansible/git_HW_ansi/host.yaml /etc/ansible/git_HW_ansi/homework.yaml
+
+[WARNING]: Unable to parse /etc/ansible/etc/ansible/git_HW_ansi/host.yaml as an inventory source
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [localhost] *****************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************
+ok: [localhost]
+
+TASK [ping servers] **************************************************************************************************************************
+ok: [localhost]
+
+TASK [install packages] **********************************************************************************************************************
+ok: [localhost] => (item=net-tools)
+ok: [localhost] => (item=git)
+ok: [localhost] => (item=tree)
+ok: [localhost] => (item=htop)
+ok: [localhost] => (item=mc)
+ok: [localhost] => (item=vim)
+
+TASK [update all packages] *******************************************************************************************************************
+ok: [localhost]
+
+TASK [copy test.txt] *************************************************************************************************************************
+ok: [localhost]
+
+TASK [create users] **************************************************************************************************************************
+ok: [localhost] => (item=devops_1)
+ok: [localhost] => (item=test_1)
+
+PLAY RECAP ***********************************************************************************************************************************
+localhost                  : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
