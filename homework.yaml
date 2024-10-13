@@ -1,6 +1,17 @@
 ---
-- hosts: all
-  become: true
+- hosts: localhost
+  become: true 
+  vars:
+    users:
+       - devops_1
+       - test_1
+    packages:
+       - net-tools
+       - git
+       - tree
+       - htop
+       - mc
+       - vim
   tasks:
     - name: ping servers
       ansible.builtin.ping:
@@ -18,8 +29,8 @@
 
     - name: copy test.txt
       ansible.builtin.copy:
-        src: test.txt
-        dest: /tmp/test.txt
+        src: /etc/ansible/test.txt
+        dest: /etc/ansible/tmp/test.txt
         owner: root
         group: root
         mode: '0644'
